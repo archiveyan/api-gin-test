@@ -1,14 +1,15 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	_ "fmt"
+	_ "log"
+	_ "os"
 
-func main(){
-	r := gin.Default()
-	r.GET("/granrodeo", func(c *gin.Context){
-		c.JSON(200, gin.H{
-			"message": "opai",
-		})
-	})
+	"github.com/weet/router"
+	//_ "github.com/jinzhu/gorm/dialects/mysql"
+)
 
-	r.Run(":1248")
+func main() {
+	r := router.GetRouter()
+	r.Run(":8080")
 }
